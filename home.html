@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Home &middot; Step It Up</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+  
+		<div class="navbar">
+			<div class="navbar-inner">
+				<a class="brand" href="#" style="color:#22468a">Step It Up</a>
+				<ul class="nav">
+					<li class="active" style="color:#edac1a"><a href="#">Home</a></li>
+					<li><a href="#" style="color:#22468a">Challenge Information</a></li>
+					<li><a href="#" style="color:#22468a">Point Breakdown</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<!-- Welcome header -->
+		<div class="page-header">
+			<h1 style="margin:0px 0px 0px 15px;">Welcome, Noah <small>to Step It Up!</small></h1>
+		</div>
+		
+		<!-- progress desc. -->
+		<div class="row">
+			<div class="span6 offset1">
+				<h2>Current week completion.</h2>
+			</div>
+		</div>
+		
+		<!-- Progress bar -->
+		<div class="progress progress-striped">
+			<div class="bar" style="width: 20%; background-color:#22468a;"></div>
+		</div>
+		
+		<!-- Chart and Buttons -->	
+		<div class="row">
+			
+			<!-- Buttons for tracking -->
+			<div class="span4 offset1">
+				<ul class="thumbnails">
+					<li class="span4">
+						<div class="thumbnail">
+							<a href="fitness_goals_page.html">
+							<img src="img/fitness_button_default.png" class="img-polaroid" alt="Fitness Goals and Logging">
+							</a>
+							<h4>Fitness Goal and Logging</h4>
+							<p>To record your fitness progress each week, please click here.</p>
+						</div>
+					</li>
+				</ul>
+				
+				<ul class="thumbnails">
+					<li class="span4">
+						<div class="thumbnail">
+							<img src="img/nutrition_button_default.png" class="img-polaroid" alt="Nutrition Goal and Logging">
+							<h4>Nutrition Goal and Logging</h4>
+							<p>To record your nutrition progress each week, please click here.</p>
+						</div>
+					</li>
+				</ul>
+				
+				<ul class="thumbnails">
+					<li class="span4">
+						<div class="thumbnail">
+							<img src="img/bonus_button_default.png" class="img-polaroid" alt="Bonus Events and Activities">
+							<h4>Bonus Events and Activities</h4>
+							<p>To check out ways to get even more points throughout the weeks, please click here.</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			
+			<!-- Chart for weekly progress -->
+			<div class="span11">
+				<ul class="thumbnails">
+					<li class="span11">
+							<canvas id="this_week_break_down"></canvas>
+							<h4>Progress Tracker</h4>
+							<p>As the program progresses, your totals for each week will display on this chart.</p>
+					</li>
+				</ul>
+			</div>
+			
+			<!-- This week Point info -->
+			<div class="span4">
+				<ul class="thumbnails">
+					<li class="span4">
+						<div class="thumbnail">
+							<h3 style="text-align:center;">Weekly</h3>
+							<h2 style="text-align:center;">0</h2>
+						</div>
+					</li>
+				</ul>
+				
+				<ul class="thumbnails">
+					<li class="span8">
+						<div class="thumbnail">
+							<h3 style="text-align:center;">Weekly</h3>
+							<h2 style="text-align:center;">0</h2>
+						</div>
+					</li>
+				</ul>
+				
+			</div>
+			
+			<div class="span4">
+				<ul class="thumbnails">
+					<li class="span4">
+						<div class="thumbnail">
+							<h3 style="text-align:center;">Total</h3>
+							<h2 style="text-align:center;">0</h2>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- load scripts here -->
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/Chart.js"></script>
+		
+		<script>
+			var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+			var lineChartData = {
+				labels : ["Week 1","Week 2","Week 3","Week 4","Week 5"],
+				datasets : [
+					{
+						fillColor : "rgba(34, 70, 138, 1)",
+						strokeColor : "rgba(237, 172, 26, 1)",
+						highlightFill : "rgba(151,187,205,0.75)",
+						highlightStroke : "rgba(151,187,205,1)",
+						data : [randomScalingFactor(),
+								randomScalingFactor(),
+								randomScalingFactor(),
+								randomScalingFactor(),
+								randomScalingFactor()]
+					}
+				]
+			}
+			window.onload = function(){
+				var ctx = document.getElementById("this_week_break_down").getContext("2d");
+				window.myBar = new Chart(ctx).Line(lineChartData,{responsive : true});
+			}
+		</script>
+	</body>
+</html>

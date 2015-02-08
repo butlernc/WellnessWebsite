@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Fitness Goals &middot; Step It Up</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	</head>
+	<body>
+		<div class="navbar">
+			<div class="navbar-inner">
+				<a class="brand" href="#" style="color:#22468a">Step It Up</a>
+				<ul class="nav">
+					<li><a href="#" style="color:#22468a">Home</a></li>
+					<li><a href="#" style="color:#22468a">Challenge Information</a></li>
+					<li><a href="#" style="color:#22468a">Point Breakdown</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<!-- progress desc. -->
+		<div class="row">
+			<div class="span12 offset1">
+				<h2> Fitness Goal Progress</h2>
+			</div>
+		</div>
+		
+		<!-- Progress Bar -->
+		<div class="progress progress-striped">
+			<div class="bar" style="width: 80%; background-color:#22468a;"></div>
+		</div>
+		
+		<!-- Fitness Goal Desc -->
+		<div class="row">
+			<div class="span6 offset1">
+				<ul class="thumbnails">
+					<li class="span6">
+						<div class="thumbnail">
+							<h2>Do 30 minutes of cardio on at least 3 days this week.</h2>
+							<p>Dr. Myers and the AHA point out that some of the benefits 
+							of regular cardiovascular exercise include reduction in body 
+							weight, blood pressure, bad cholesterol and increases in good 
+							cholesterol and insulin sensitivity.  Every adult should participate 
+							in 30 minutes or more of moderate activity on most days of the week.  
+							Moderate activities include brisk walking, recreational activities 
+							such as cycling or swimming, house work or yard work.  Getting 
+							at least 30 minutes of exercise doesn't require a gym membership 
+							or fancy equipment.  Get outside, grab your friends, and just 
+							get moving.  Check out what the University Recreation and Sport 
+							Facilities(link 1) department has to offer for fun activities.  
+							An added bonus in this fitness and nutrition challenge is the 
+							opportunity to learn how to find and identify credible health 
+							resources. For example, here is a published research article noting 
+							the benefits of cardiovascular exercise.  The reader can quickly 
+							see that the author is a PhD in cardiology and is associated with 
+							the American Heart Association.  Anybody can read this entire 
+							article or use the navigate this article on the right 
+							hand side to quickly take you to key sections like what are 
+							the benefits of exercise and how much is enough (link 2).
+							</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="span2 offset1">
+				<ul class="thumbnails">
+					<li class="span2">
+						<button class="btn btn-large btn-primary" type="button">Completed!</button>
+					</li>
+				</ul>
+				<ul class="thumbnails">
+					<li class="span2">
+						<button class="btn btn-large btn-primary" type="button">Completed!</button>
+					</li>
+				</ul>
+				<ul class="thumbnails">
+					<li class="span2">
+						<button class="btn btn-large btn-primary" type="button">Completed!</button>
+					</li>
+				</ul>
+				<ul class="thumbnails">
+					<li class="span2">
+						<button class="btn btn-large btn-primary" type="button">Completed!</button>
+					</li>
+				</ul>
+				<ul class="thumbnails">
+					<li class="span2">
+						<button class="btn btn-large btn-warning" type="button">30+ Minutes</button>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="span4 offset1">
+				<ul class="thumbnails">
+					<li class="span4">
+						<canvas id="pie_chart" width="300" height="300"></canvas>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="span4 offset1">
+				<ul class="thumbnails">
+					<li class="span4">
+						<div class="thumbnail">
+							<h3 style="text-align:center;">Completed</h3>
+							<h2 style="text-align:center;">40</h2>
+						</div>
+					</li>
+				</ul>
+				
+				<ul class="thumbnails">
+					<li class="span8">
+						<div class="thumbnail">
+							<h4 style="text-align:center;">Suggested Workout of the Week!</h4>
+							<p style="text-align:center;">(Embeded Youtube Video)</p>
+						</div>
+					</li>
+				</ul>		
+				
+			</div>
+			
+			<div class="span4">
+				<ul class="thumbnails">
+					<li class="span4">
+						<div class="thumbnail">
+							<h3 style="text-align:center;">Missing</h3>
+							<h2 style="text-align:center;">10</h2>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<script>
+
+		var pieData = [
+				{
+					value: 40,
+					color:"#22468a",
+					highlight: "#22468a",
+					label: "Points earned this week"
+				},
+				{
+					value: 10,
+					color: "#edac1a",
+					highlight: "#edac1a",
+					label: "Points not earned"
+				}
+			];
+
+			window.onload = function(){
+				var ctx = document.getElementById("pie_chart").getContext("2d");
+				window.myPie = new Chart(ctx).Doughnut(pieData);
+			};
+
+
+
+	</script>
+		<script src="js/Chart.js"></script>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</body>
+</html>
